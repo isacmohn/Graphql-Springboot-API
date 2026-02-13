@@ -1,22 +1,44 @@
-This is a small prototype built to understand how a Spring Boot application can fetch data from a public API and expose it through a GraphQL resolver.
+# GraphQL Spring Boot API (Learning Prototype)
+
+This is a small prototype built to understand how a Spring Boot application can fetch data from a public API and expose it through a GraphQL resolver.  
 The project focuses on architecture and data flow — not production features.
 
-All core logic is located in: src/main/java/no/usn/GraphQl_Test/
 
-Application entry point: GraphQlTestApplication.java
-GraphQL resolver: graphql/CountryQueryResolver.java
-Service (calls external API): service/CountriesService.java
+## Where is the core code?
 
-Models (mapped response objects) are in files
--  model/Country.java
--  model/CountriesApiResponse.java
+All important application code is located in:
 
-Application flow: GraphQL Query → Resolver → Service → Public API → Mapping → Response
+src/main/java/no/usn/GraphQl_Test/
 
 
-Tech stack:
-  -  Java 17
-  -  Spring Boot
-  -  Spring GraphQL
-  -  WebClient
-  -  Maven
+## Start reading here
+
+**Application entry point**  
+GraphQlTestApplication.java  
+Starts the Spring Boot application.
+
+**GraphQL Resolver**  
+graphql/CountryQueryResolver.java  
+Receives the `country(code)` query and forwards it to the service layer.
+
+**Service layer**  
+service/CountriesService.java  
+Calls the external public API using WebClient and maps the response.
+
+**Model classes**  
+model/Country.java  
+model/CountriesApiResponse.java  
+Represents structured response objects returned to the client.
+
+
+## Data flow
+
+GraphQL query → Resolver → Service → External API → Mapping → Response
+
+
+## Tech stack
+- Java 17
+- Spring Boot
+- Spring GraphQL
+- WebClient
+- Maven
